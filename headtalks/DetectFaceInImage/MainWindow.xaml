@@ -1,0 +1,29 @@
+﻿<Controls:MetroWindow x:Class="DetectFaceInImage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:DetectFaceInImage"
+        mc:Ignorable="d"
+        Title="Headtalks - Face Detection In Image" Height="350" Width="525">
+    <Grid Margin="10,10,9,10">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Path To Image File" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox x:Name="imagePath" Grid.Column="1" Margin="10,0" Controls:TextBoxHelper.Watermark="Select an image file" />
+            <Button Content="..." Grid.Column="2" Click="Button_Click" MinWidth="40" />
+            <Image x:Name="imageDisplay" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,10,0,0" />
+            
+        </Grid>
+
+    </Grid>
+</Controls:MetroWindow>

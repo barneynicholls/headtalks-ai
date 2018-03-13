@@ -4,3 +4,5 @@ _ReSharper.*
 bin
 obj
 packages
+/headtalks/.vs/headtalks/v15/Server/sqlite3
+/headtalks/DetectFaceInImage/App.config
