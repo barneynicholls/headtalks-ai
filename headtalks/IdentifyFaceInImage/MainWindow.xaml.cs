@@ -24,6 +24,15 @@ namespace IdentifyFaceInImage
         public MainWindow()
         {
             InitializeComponent();
+
+            PersonGroup pg = new PersonGroup();
+
+            Task.Run(async()=>
+            {
+                await pg.CreatePersonGroup("test-group", "Test Group");
+            });
         }
+
+
     }
 }
