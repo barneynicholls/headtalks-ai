@@ -93,9 +93,9 @@ namespace DetectFaceInImage
             imageDisplay.Source = bitmapSource;
 
             // Detect any faces in the image.
-            Title = "Detecting...";
+            status.Text = "Detecting...";
             faces = await UploadAndDetectFaces(filePath);
-            Title = String.Format("Detection Finished. {0} face(s) detected", faces.Length);
+            status.Text = String.Format("Detection Finished. {0} face(s) detected", faces.Length);
 
             if (faces.Length > 0)
             {
