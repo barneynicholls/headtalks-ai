@@ -20,5 +20,14 @@ namespace IdentifyFaceInImage
             // create person group
             await faceServiceClient.CreatePersonGroupAsync(personGroupId, name);
         }
+
+        public async Task DeletePersonGroup(string personGroupId)
+        {
+            // delete person group
+            await faceServiceClient.DeletePersonGroupAsync(personGroupId);
+        }
+
+
     }
 }
+
