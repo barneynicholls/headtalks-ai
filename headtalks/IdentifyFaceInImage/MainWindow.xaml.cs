@@ -34,127 +34,136 @@ namespace IdentifyFaceInImage
 
             TrainingData data = TrainingData.Create(personGroupDir);
 
-            int x = data.People.Count();
-           
+            trainingData.DataContext = data;
         }
+
 
         private void LoadPersonGroupTrainingSet(string path)
         {
-          
+
+        }
+
+        private void UpdateStatus(string message)
+        {
+            Console.WriteLine(message);
+            status.Content = message;
+        }
+
+        private async Task TrainIt(IProgress<string> progress)
+        {
+            progress.Report("Creating Person Group");
+
+            var key = ConfigurationManager.AppSettings["subscriptionKey"];
+            var apiRoot = ConfigurationManager.AppSettings["apiRoot"];
+            var faceServiceClient = new FaceServiceClient(key, apiRoot);
+
+            var samplesDir = ConfigurationManager.AppSettings["samplesDir"];
+
+            string personGroupId = "test-group";
+
+            try
+            {
+                await faceServiceClient.DeletePersonGroupAsync(personGroupId);
+            }
+            catch (Exception ex)
+            {
+                progress.Report($"Delete Person Group Error: {ex.Message}");
+            }
+
+            try
+            {
+                await faceServiceClient.CreatePersonGroupAsync(personGroupId, "Test Group");
+            }
+            catch (Exception ex)
+            {
+                progress.Report($"Create Person Group Error: {ex.Message}");
+            }
+
+            var personGroupDir = System.IO.Path.Combine(samplesDir, "PersonGroup");
+
+            DirectoryInfo di = new DirectoryInfo(personGroupDir);
+
+            var personDirectories = di.GetDirectories();
+
+            foreach (var personDirectory in personDirectories)
+            {
+                string personName = personDirectory.Name;
+
+                progress.Report($"Adding '{personName}'");
+
+                CreatePersonResult person = await faceServiceClient.CreatePersonAsync(
+                    // group id
+                    personGroupId,
+                    // person name
+                    personName);
+
+                foreach (var image in personDirectory.GetFiles("*.jpg"))
+                {
+                    using (Stream s = File.OpenRead(image.FullName))
+                    {
+                        await faceServiceClient.AddPersonFaceAsync(
+                            personGroupId,
+                            person.PersonId,
+                            s);
+                    }
+                }
+
+            }
+
+            progress.Report("Training Person Group");
+
+            await faceServiceClient.TrainPersonGroupAsync(personGroupId);
+
+            TrainingStatus trainingStatus = null;
+            while (true)
+            {
+                trainingStatus = await faceServiceClient.GetPersonGroupTrainingStatusAsync(personGroupId);
+
+                var status = trainingStatus.Status.ToString().ToLower();
+
+                if (status != "running")
+                {
+                    break;
+                }
+
+                await Task.Delay(1000);
+            }
+
+            progress.Report("Upload image for identification");
+
+            string testImageFile = System.IO.Path.Combine(samplesDir, @"identification3.jpg");
+
+            using (Stream s = File.OpenRead(testImageFile))
+            {
+                var faces = await faceServiceClient.DetectAsync(s);
+                var faceIds = faces.Select(face => face.FaceId).ToArray();
+
+                var results = await faceServiceClient.IdentifyAsync(personGroupId, faceIds);
+                foreach (var identifyResult in results)
+                {
+                    progress.Report($"Result of face: {identifyResult.FaceId}");
+                    if (identifyResult.Candidates.Length == 0)
+                    {
+                        progress.Report("No one identified");
+                    }
+                    else
+                    {
+                        // Get top 1 among all candidates returned
+                        var candidateId = identifyResult.Candidates[0].PersonId;
+                        var person = await faceServiceClient.GetPersonAsync(personGroupId, candidateId);
+                        progress.Report($"Identified as {person.Name}");
+                    }
+                }
+            }
+
+            progress.Report("Done");
         }
 
         private void Train()
         {
-            Task.Run(async () =>
-            {
-                Console.WriteLine("Creating Person Group");
+            Progress<string> progress = new Progress<string>(i => UpdateStatus(i));
 
-                var key = ConfigurationManager.AppSettings["subscriptionKey"];
-                var apiRoot = ConfigurationManager.AppSettings["apiRoot"];
-                var faceServiceClient = new FaceServiceClient(key, apiRoot);
-
-                var samplesDir = ConfigurationManager.AppSettings["samplesDir"];
-
-                string personGroupId = "test-group";
-
-                try
-                {
-                    await faceServiceClient.DeletePersonGroupAsync(personGroupId);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Delete Person Group Error: {ex.Message}");
-                }
-
-                try
-                {
-                    await faceServiceClient.CreatePersonGroupAsync(personGroupId, "Test Group");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Create Person Group Error: {ex.Message}");
-                }
-
-                var personGroupDir = System.IO.Path.Combine(samplesDir, "PersonGroup");
-
-                DirectoryInfo di = new DirectoryInfo(personGroupDir);
-
-                var personDirectories = di.GetDirectories();
-
-                foreach (var personDirectory in personDirectories)
-                {
-                    string personName = personDirectory.Name;
-
-                    Console.WriteLine($"Adding '{personName}'");
-
-                    CreatePersonResult person = await faceServiceClient.CreatePersonAsync(
-                        // group id
-                        personGroupId,
-                        // person name
-                        personName);
-
-                    foreach (var image in personDirectory.GetFiles("*.jpg"))
-                    {
-                        using (Stream s = File.OpenRead(image.FullName))
-                        {
-                            await faceServiceClient.AddPersonFaceAsync(
-                                personGroupId,
-                                person.PersonId,
-                                s);
-                        }
-                    }
-
-                }
-
-                Console.WriteLine("Training Person Group");
-
-                await faceServiceClient.TrainPersonGroupAsync(personGroupId);
-
-                TrainingStatus trainingStatus = null;
-                while (true)
-                {
-                    trainingStatus = await faceServiceClient.GetPersonGroupTrainingStatusAsync(personGroupId);
-
-                    var status = trainingStatus.Status.ToString().ToLower();
-
-                    if (status != "running")
-                    {
-                        break;
-                    }
-
-                    await Task.Delay(1000);
-                }
-
-                Console.WriteLine("Upload image for identification");
-
-                string testImageFile = System.IO.Path.Combine(samplesDir, @"identification3.jpg");
-
-                using (Stream s = File.OpenRead(testImageFile))
-                {
-                    var faces = await faceServiceClient.DetectAsync(s);
-                    var faceIds = faces.Select(face => face.FaceId).ToArray();
-
-                    var results = await faceServiceClient.IdentifyAsync(personGroupId, faceIds);
-                    foreach (var identifyResult in results)
-                    {
-                        Console.WriteLine("Result of face: {0}", identifyResult.FaceId);
-                        if (identifyResult.Candidates.Length == 0)
-                        {
-                            Console.WriteLine("No one identified");
-                        }
-                        else
-                        {
-                            // Get top 1 among all candidates returned
-                            var candidateId = identifyResult.Candidates[0].PersonId;
-                            var person = await faceServiceClient.GetPersonAsync(personGroupId, candidateId);
-                            Console.WriteLine("Identified as {0}", person.Name);
-                        }
-                    }
-                }
-
-                Console.WriteLine("Done");
-
-            });
+            Task.Run(async ()=> await TrainIt(progress));
         }
     }
 
