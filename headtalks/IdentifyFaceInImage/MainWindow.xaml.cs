@@ -29,8 +29,26 @@ namespace IdentifyFaceInImage
         {
             InitializeComponent();
 
+            var samplesDir = ConfigurationManager.AppSettings["samplesDir"];
+            var personGroupDir = System.IO.Path.Combine(samplesDir, "PersonGroup");
+
+            TrainingData data = TrainingData.Create(personGroupDir);
+
+            int x = data.People.Count();
+           
+        }
+
+        private void LoadPersonGroupTrainingSet(string path)
+        {
+          
+        }
+
+        private void Train()
+        {
             Task.Run(async () =>
             {
+                Console.WriteLine("Creating Person Group");
+
                 var key = ConfigurationManager.AppSettings["subscriptionKey"];
                 var apiRoot = ConfigurationManager.AppSettings["apiRoot"];
                 var faceServiceClient = new FaceServiceClient(key, apiRoot);
@@ -39,56 +57,75 @@ namespace IdentifyFaceInImage
 
                 string personGroupId = "test-group";
 
-                //await faceServiceClient.DeletePersonGroupAsync(personGroupId);
+                try
+                {
+                    await faceServiceClient.DeletePersonGroupAsync(personGroupId);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Delete Person Group Error: {ex.Message}");
+                }
 
-                //await faceServiceClient.CreatePersonGroupAsync(personGroupId, "Test Group");
+                try
+                {
+                    await faceServiceClient.CreatePersonGroupAsync(personGroupId, "Test Group");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Create Person Group Error: {ex.Message}");
+                }
 
-                //var personGroupDir = System.IO.Path.Combine(samplesDir, "PersonGroup");
+                var personGroupDir = System.IO.Path.Combine(samplesDir, "PersonGroup");
 
-                //DirectoryInfo di = new DirectoryInfo(personGroupDir);
+                DirectoryInfo di = new DirectoryInfo(personGroupDir);
 
-                //var personDirectories = di.GetDirectories();
+                var personDirectories = di.GetDirectories();
 
-                //foreach (var personDirectory in personDirectories)
-                //{
-                //    string personName = personDirectory.Name;
+                foreach (var personDirectory in personDirectories)
+                {
+                    string personName = personDirectory.Name;
 
-                //    CreatePersonResult person = await faceServiceClient.CreatePersonAsync(
-                //        // group id
-                //        personGroupId,
-                //        // person name
-                //        personName);
+                    Console.WriteLine($"Adding '{personName}'");
 
-                //    foreach (var image in personDirectory.GetFiles("*.jpg"))
-                //    {
-                //        using (Stream s = File.OpenRead(image.FullName))
-                //        {
-                //            await faceServiceClient.AddPersonFaceAsync(
-                //                personGroupId,
-                //                person.PersonId,
-                //                s);
-                //        }
-                //    }
+                    CreatePersonResult person = await faceServiceClient.CreatePersonAsync(
+                        // group id
+                        personGroupId,
+                        // person name
+                        personName);
 
+                    foreach (var image in personDirectory.GetFiles("*.jpg"))
+                    {
+                        using (Stream s = File.OpenRead(image.FullName))
+                        {
+                            await faceServiceClient.AddPersonFaceAsync(
+                                personGroupId,
+                                person.PersonId,
+                                s);
+                        }
+                    }
 
-                //}
+                }
 
-                //await faceServiceClient.TrainPersonGroupAsync(personGroupId);
+                Console.WriteLine("Training Person Group");
 
-                //TrainingStatus trainingStatus = null;
-                //while (true)
-                //{
-                //    trainingStatus = await faceServiceClient.GetPersonGroupTrainingStatusAsync(personGroupId);
+                await faceServiceClient.TrainPersonGroupAsync(personGroupId);
 
-                //    var status = trainingStatus.Status.ToString().ToLower();
+                TrainingStatus trainingStatus = null;
+                while (true)
+                {
+                    trainingStatus = await faceServiceClient.GetPersonGroupTrainingStatusAsync(personGroupId);
 
-                //    if (status != "running")
-                //    {
-                //        break;
-                //    }
+                    var status = trainingStatus.Status.ToString().ToLower();
 
-                //    await Task.Delay(1000);
-                //}
+                    if (status != "running")
+                    {
+                        break;
+                    }
+
+                    await Task.Delay(1000);
+                }
+
+                Console.WriteLine("Upload image for identification");
 
                 string testImageFile = System.IO.Path.Combine(samplesDir, @"identification3.jpg");
 
@@ -114,6 +151,9 @@ namespace IdentifyFaceInImage
                         }
                     }
                 }
+
+                Console.WriteLine("Done");
+
             });
         }
     }
