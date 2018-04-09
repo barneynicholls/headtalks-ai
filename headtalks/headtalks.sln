@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DetectFaceInImage", "Detect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentifyFaceInImage", "IdentifyFaceInImage\IdentifyFaceInImage.csproj", "{6D53F2D0-B779-499F-83F9-41F4BA0B974B}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Pidentity", "Pidentity\Pidentity.pyproj", "{E4B48D45-D0B3-4E21-B45E-C057868909E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{6D53F2D0-B779-499F-83F9-41F4BA0B974B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D53F2D0-B779-499F-83F9-41F4BA0B974B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D53F2D0-B779-499F-83F9-41F4BA0B974B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4B48D45-D0B3-4E21-B45E-C057868909E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4B48D45-D0B3-4E21-B45E-C057868909E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
