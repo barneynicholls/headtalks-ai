@@ -23,6 +23,26 @@
   <ItemGroup>
     <Compile Include="Adafruit_PN532\PN532.py" />
     <Compile Include="Adafruit_PN532\__init__.py" />
+    <Compile Include="guizero\alerts.py" />
+    <Compile Include="guizero\App.py" />
+    <Compile Include="guizero\base.py" />
+    <Compile Include="guizero\Box.py" />
+    <Compile Include="guizero\ButtonGroup.py" />
+    <Compile Include="guizero\CheckBox.py" />
+    <Compile Include="guizero\Combo.py" />
+    <Compile Include="guizero\event.py" />
+    <Compile Include="guizero\MenuBar.py" />
+    <Compile Include="guizero\Picture.py" />
+    <Compile Include="guizero\PushButton.py" />
+    <Compile Include="guizero\RadioButton.py" />
+    <Compile Include="guizero\Slider.py" />
+    <Compile Include="guizero\Text.py" />
+    <Compile Include="guizero\TextBox.py" />
+    <Compile Include="guizero\tkmixins.py" />
+    <Compile Include="guizero\utilities.py" />
+    <Compile Include="guizero\Waffle.py" />
+    <Compile Include="guizero\Window.py" />
+    <Compile Include="guizero\__init__.py" />
     <Compile Include="mocks\picamera.py">
       <SubType>Code</SubType>
     </Compile>
@@ -36,7 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Adafruit_PN532\" />
+    <Folder Include="guizero\" />
     <Folder Include="mocks\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="putin.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

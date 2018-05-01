@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:IdentifyFaceInImage"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
-        Title="HEADTALKS - IDENTIFY PERSON IN IMAGE" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+        Title="HEADTALKS - IDENTIFY PERSON IN IMAGE" Height="768" Width="1024" WindowStartupLocation="CenterScreen">
     <Controls:MetroWindow.Resources>
         <DataTemplate x:Key="DataTemplatePerson">
             <Grid d:DataContext="{d:DesignData /SampleData/TrainingDataSampleData.xaml}" Height="150" Margin="0,10">
@@ -49,7 +49,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <ListBox x:Name="trainingData" ItemTemplate="{DynamicResource DataTemplatePerson}" DataContext="{Binding Mode=OneWay}" ItemsSource="{Binding People}" BorderThickness="1" Padding="10" BorderBrush="#FFEEEEEE" Grid.Row="1"/>
+            <ListBox  ScrollViewer.CanContentScroll="False" x:Name="trainingData" ItemTemplate="{DynamicResource DataTemplatePerson}" DataContext="{Binding Mode=OneWay}" ItemsSource="{Binding People}" BorderThickness="1" Padding="10" BorderBrush="#FFEEEEEE" Grid.Row="1"/>
 
 
         </Grid>

@@ -40,14 +40,10 @@ namespace IdentifyFaceInImage
 
         private void LoadPersonGroupTrainingSet(string path)
         {
-
+            TrainingData data = TrainingData.Create(path);
+            trainingData.DataContext = data;
         }
 
-        private void UpdateStatus(string message)
-        {
-            Console.WriteLine(message);
-            status.Content = message;
-        }
 
         private async Task TrainIt(IProgress<string> progress)
         {
@@ -159,6 +155,11 @@ namespace IdentifyFaceInImage
             progress.Report("Done");
         }
 
+        private void UpdateStatus(string message)
+        {
+            Console.WriteLine(message);
+            status.Content = message;
+        }
         private void Train()
         {
             Progress<string> progress = new Progress<string>(i => UpdateStatus(i));
