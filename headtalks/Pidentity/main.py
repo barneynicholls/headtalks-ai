@@ -4,7 +4,7 @@ from tkinter import *
 from PIL import ImageTk, Image
 
 #try:
-#    from picamera import PiCamera as camera 
+#    from picamera import PiCamera as camera
 #except ImportError:
 from mocks import Mockpicamera as camera
 
@@ -23,27 +23,32 @@ def main():
     #cam.capture("test.jpg")
 
     window = Tk()      
-    #window.attributes('-fullscreen', True)
+    window.attributes('-fullscreen', True)
     window.configure(background = 'white')
 
-    label = Label(window, text="Welcome to Headtalks",font=("Arial", 50))
-    label.grid(column=0, row=0)
+    header = Label(window, text="Welcome to Headtalks",font=("Arial", 50), background='white')
+    header.grid(column=0, row=0)
 
     path = "putin.jpg"
-
-    #Creates a Tkinter-compatible photo image, which can be used everywhere Tkinter expects an image object.
     img = ImageTk.PhotoImage(Image.open(path))
 
-    #The Label widget is a standard Tkinter widget used to display a text or image on the screen.
-    panel = tk.Label(window, image = img)
 
-    #The Pack geometry manager packs widgets in rows or columns.
-    panel.pack(side = "bottom", fill = "both", expand = "yes")
+    panel = Label(window, image = img)
+    panel.grid(column=0, row=1)
+
+    request = Label(window, text="Please tap your card and look at the camera",font=("Arial", 50), background='white')
+    request.grid(column=0, row=2)
+
+    window.columnconfigure(0, weight=1)
+    window.rowconfigure(0, weight=1)
+    window.rowconfigure(1, weight=1)
+    window.rowconfigure(2, weight=1)
 
     window.mainloop()
 
     #app = App(title="Headtalks")
-    #message = Text(app, text="Hi Please tap your card to enter the competition!")
+    #message = Text(app, text="Hi Please tap your card to enter the
+    #competition!")
     #app.display()
 
     logging.info('finished')
