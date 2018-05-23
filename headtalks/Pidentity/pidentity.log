@@ -47,3 +47,23 @@
 2018-05-22 14:21:50,230 MainProcess root DEBUG    capture: 'trump.jpg' 
 2018-05-22 14:22:02,439 MainProcess root INFO     Started
 2018-05-22 14:22:05,211 MainProcess root DEBUG    capture: 'trump.jpg' 
+2018-05-23 13:39:37,022 MainProcess root INFO     Started
+2018-05-23 13:39:45,566 MainProcess root DEBUG    capture: 'trump.jpg' 
+2018-05-23 13:46:06,467 MainProcess root INFO     Started
+2018-05-23 13:46:12,983 MainProcess root DEBUG    capture: 'trump.jpg' 
+2018-05-23 13:48:55,753 MainProcess root INFO     Started
+2018-05-23 13:48:59,744 MainProcess root DEBUG    capture: 'trump.jpg' 
+2018-05-23 13:49:57,166 MainProcess root INFO     Started
+2018-05-23 13:49:58,987 MainProcess root DEBUG    capture: 'trump.jpg' 
+2018-05-23 13:52:53,503 MainProcess root INFO     Started
+2018-05-23 13:57:00,609 MainProcess root INFO     Started
+2018-05-23 13:57:28,431 MainProcess root INFO     Started
+2018-05-23 13:58:38,367 MainProcess root INFO     Started
+2018-05-23 13:59:30,298 MainProcess root INFO     Started
+2018-05-23 13:59:33,967 MainProcess root DEBUG    start_preview
+2018-05-23 13:59:36,042 MainProcess root DEBUG    stop_preview
+2018-05-23 13:59:39,352 MainProcess root DEBUG    capture: 'trump.jpg' 
+2018-05-23 14:07:07,273 MainProcess root INFO     Started
+2018-05-23 14:07:38,408 MainProcess root INFO     Started
+2018-05-23 14:07:40,078 MainProcess root INFO     capturing file: C:\Users\BARNEY~1\AppData\Local\Temp\tmpk7i9tqje
+2018-05-23 14:07:40,094 MainProcess root DEBUG    capture: 'C:\Users\BARNEY~1\AppData\Local\Temp\tmpk7i9tqje' 
