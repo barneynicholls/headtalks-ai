@@ -1,7 +1,9 @@
 import logging
 import logging.handlers
 import tempfile
-import os.path
+import os
+import binascii
+import sys
 from tkinter import *
 from PIL import ImageTk, Image
 
@@ -10,8 +12,24 @@ try:
 except ImportError:
     from mocks import Mockpicamera as camera
 
+try:
+    import Adafruit_PN532 as PN532
+except ImportError:
+    from mocks import MockPN532Module as PN532
+
+# camera
 cam = camera()
 cam.resolution = (800, 600)
+
+# PN532 Configuration for a Raspberry Pi:
+CS   = 18
+MOSI = 23
+MISO = 24
+SCLK = 25
+pn532 = PN532.PN532(cs=CS, sclk=SCLK, mosi=MOSI, miso=MISO)
+pn532.begin()
+
+# UI
 window = Tk() 
 panel = Label(window)
 
@@ -88,10 +106,19 @@ def default_ui():
 def main():
     window.mainloop()
 
-    #app = App(title="Headtalks")
-    #message = Text(app, text="Hi Please tap your card to enter the
-    #competition!")
-    #app.display()
+    logging.info('looking for card')
+
+    while True:
+        uid = pn532.read_passive_target()
+
+        if uid is None:
+            continue
+
+        logging.info('Found card with UID: 0x{0}'.format(binascii.hexlify(uid)))
+
+        capture()
+
+        continue
 
     logging.info('finished')
 
