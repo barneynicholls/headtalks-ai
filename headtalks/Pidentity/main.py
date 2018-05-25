@@ -63,7 +63,7 @@ def close():
     sys.exit()
 
 def init():
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
     root = logging.getLogger()
     h = logging.handlers.RotatingFileHandler('pidentity.log', 'a', (1024 * 1024 * 2), 10)
     f = logging.Formatter('%(asctime)s %(processName)-10s %(name)s %(levelname)-8s %(message)s')
@@ -118,6 +118,8 @@ def cardreader():
         logging.info('Found card with UID: 0x{0}'.format(binascii.hexlify(uid)))
 
         capture()
+
+        window.update()
 
         continue
 
