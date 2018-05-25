@@ -2,6 +2,7 @@ import logging
 import logging.handlers
 import tempfile
 import os
+import time
 import binascii
 import sys
 from tkinter import *
@@ -105,9 +106,7 @@ def default_ui():
     window.rowconfigure(3, weight=1)
     window.rowconfigure(4, weight=1)
 
-def main():
-    window.mainloop()
-
+def cardreader():
     logging.info('looking for card')
 
     while True:
@@ -124,6 +123,9 @@ def main():
 
     logging.info('finished')
 
+def main():
+    window.after(2000, cardreader)
+    window.mainloop()
 
 if __name__ == "__main__":
     try:
