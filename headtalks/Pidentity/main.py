@@ -12,10 +12,12 @@ try:
 except ImportError:
     from mocks import Mockpicamera as camera
 
-try:
-    import Adafruit_PN532 as PN532
-except ImportError:
-    from mocks import MockPN532Module as PN532
+
+import Adafruit_PN532 as PN532
+#try:
+#    import Adafruit_PN532 as PN532
+#except ImportError:
+#    from mocks import MockPN532Module as PN532
 
 # camera
 cam = camera()

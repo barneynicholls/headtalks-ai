@@ -2,7 +2,7 @@ import logging
 
 class MockPN532Module(object):
     def __init__(self):
-        self.mock = True;
+        logging.info("MockPN532Module Loaded")
 
     def PN532(cs, sclk, mosi, miso):
         logging.debug("MockPN532Module create MockPN532")
