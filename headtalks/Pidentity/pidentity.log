@@ -67,3 +67,106 @@
 2018-05-23 14:07:38,408 MainProcess root INFO     Started
 2018-05-23 14:07:40,078 MainProcess root INFO     capturing file: C:\Users\BARNEY~1\AppData\Local\Temp\tmpk7i9tqje
 2018-05-23 14:07:40,094 MainProcess root DEBUG    capture: 'C:\Users\BARNEY~1\AppData\Local\Temp\tmpk7i9tqje' 
+2018-05-24 09:01:33,512 MainProcess root INFO     Started
+2018-05-24 09:01:52,951 MainProcess root INFO     capturing file: C:\Users\BARNEY~1\AppData\Local\Temp\tmpm4uu08g3
+2018-05-24 09:01:52,951 MainProcess root DEBUG    capture: 'C:\Users\BARNEY~1\AppData\Local\Temp\tmpm4uu08g3' 
+2018-05-25 15:10:30,390 MainProcess root INFO     Started
+2018-05-25 15:10:32,501 MainProcess root INFO     capturing file: C:\Users\BARNEY~1\AppData\Local\Temp\tmpdd46v4d_
+2018-05-25 15:10:32,503 MainProcess root DEBUG    capture: 'C:\Users\BARNEY~1\AppData\Local\Temp\tmpdd46v4d_' 
+2018-05-25 15:10:33,506 MainProcess PIL.Image DEBUG    Importing BlpImagePlugin
+2018-05-25 15:10:33,519 MainProcess PIL.Image DEBUG    Importing BmpImagePlugin
+2018-05-25 15:10:33,521 MainProcess PIL.Image DEBUG    Importing BufrStubImagePlugin
+2018-05-25 15:10:33,529 MainProcess PIL.Image DEBUG    Importing CurImagePlugin
+2018-05-25 15:10:33,537 MainProcess PIL.Image DEBUG    Importing DcxImagePlugin
+2018-05-25 15:10:33,551 MainProcess PIL.Image DEBUG    Importing DdsImagePlugin
+2018-05-25 15:10:33,559 MainProcess PIL.Image DEBUG    Importing EpsImagePlugin
+2018-05-25 15:10:33,664 MainProcess PIL.Image DEBUG    Importing FitsStubImagePlugin
+2018-05-25 15:10:33,674 MainProcess PIL.Image DEBUG    Importing FliImagePlugin
+2018-05-25 15:10:33,687 MainProcess PIL.Image DEBUG    Importing FpxImagePlugin
+2018-05-25 15:10:33,698 MainProcess PIL.Image DEBUG    Image: failed to import FpxImagePlugin: No module named 'olefile'
+2018-05-25 15:10:33,700 MainProcess PIL.Image DEBUG    Importing FtexImagePlugin
+2018-05-25 15:10:33,710 MainProcess PIL.Image DEBUG    Importing GbrImagePlugin
+2018-05-25 15:10:33,719 MainProcess PIL.Image DEBUG    Importing GifImagePlugin
+2018-05-25 15:10:33,722 MainProcess PIL.Image DEBUG    Importing GribStubImagePlugin
+2018-05-25 15:10:33,731 MainProcess PIL.Image DEBUG    Importing Hdf5StubImagePlugin
+2018-05-25 15:10:33,739 MainProcess PIL.Image DEBUG    Importing IcnsImagePlugin
+2018-05-25 15:10:33,754 MainProcess PIL.Image DEBUG    Importing IcoImagePlugin
+2018-05-25 15:10:33,764 MainProcess PIL.Image DEBUG    Importing ImImagePlugin
+2018-05-25 15:10:33,775 MainProcess PIL.Image DEBUG    Importing ImtImagePlugin
+2018-05-25 15:10:33,787 MainProcess PIL.Image DEBUG    Importing IptcImagePlugin
+2018-05-25 15:10:33,796 MainProcess PIL.Image DEBUG    Importing JpegImagePlugin
+2018-05-25 15:10:33,799 MainProcess PIL.Image DEBUG    Importing Jpeg2KImagePlugin
+2018-05-25 15:10:33,801 MainProcess PIL.Image DEBUG    Importing McIdasImagePlugin
+2018-05-25 15:10:33,810 MainProcess PIL.Image DEBUG    Importing MicImagePlugin
+2018-05-25 15:10:33,822 MainProcess PIL.Image DEBUG    Image: failed to import MicImagePlugin: No module named 'olefile'
+2018-05-25 15:10:33,824 MainProcess PIL.Image DEBUG    Importing MpegImagePlugin
+2018-05-25 15:10:33,834 MainProcess PIL.Image DEBUG    Importing MpoImagePlugin
+2018-05-25 15:10:33,843 MainProcess PIL.Image DEBUG    Importing MspImagePlugin
+2018-05-25 15:10:33,852 MainProcess PIL.Image DEBUG    Importing PalmImagePlugin
+2018-05-25 15:10:33,863 MainProcess PIL.Image DEBUG    Importing PcdImagePlugin
+2018-05-25 15:10:33,872 MainProcess PIL.Image DEBUG    Importing PcxImagePlugin
+2018-05-25 15:10:33,874 MainProcess PIL.Image DEBUG    Importing PdfImagePlugin
+2018-05-25 15:10:33,962 MainProcess PIL.Image DEBUG    Importing PixarImagePlugin
+2018-05-25 15:10:33,973 MainProcess PIL.Image DEBUG    Importing PngImagePlugin
+2018-05-25 15:10:33,976 MainProcess PIL.Image DEBUG    Importing PpmImagePlugin
+2018-05-25 15:10:33,979 MainProcess PIL.Image DEBUG    Importing PsdImagePlugin
+2018-05-25 15:10:33,989 MainProcess PIL.Image DEBUG    Importing SgiImagePlugin
+2018-05-25 15:10:34,000 MainProcess PIL.Image DEBUG    Importing SpiderImagePlugin
+2018-05-25 15:10:34,010 MainProcess PIL.Image DEBUG    Importing SunImagePlugin
+2018-05-25 15:10:34,019 MainProcess PIL.Image DEBUG    Importing TgaImagePlugin
+2018-05-25 15:10:34,029 MainProcess PIL.Image DEBUG    Importing TiffImagePlugin
+2018-05-25 15:10:34,032 MainProcess PIL.Image DEBUG    Importing WebPImagePlugin
+2018-05-25 15:10:34,066 MainProcess PIL.Image DEBUG    Importing WmfImagePlugin
+2018-05-25 15:10:34,077 MainProcess PIL.Image DEBUG    Importing XbmImagePlugin
+2018-05-25 15:10:34,097 MainProcess PIL.Image DEBUG    Importing XpmImagePlugin
+2018-05-25 15:10:34,114 MainProcess PIL.Image DEBUG    Importing XVThumbImagePlugin
+2018-05-25 15:11:18,299 MainProcess root INFO     Started
+2018-05-25 15:11:31,432 MainProcess root INFO     capturing file: C:\Users\BARNEY~1\AppData\Local\Temp\tmps4vulfym
+2018-05-25 15:11:34,313 MainProcess root DEBUG    capture: 'C:\Users\BARNEY~1\AppData\Local\Temp\tmps4vulfym' 
+2018-05-25 15:11:44,591 MainProcess PIL.Image DEBUG    Importing BlpImagePlugin
+2018-05-25 15:11:44,606 MainProcess PIL.Image DEBUG    Importing BmpImagePlugin
+2018-05-25 15:11:44,606 MainProcess PIL.Image DEBUG    Importing BufrStubImagePlugin
+2018-05-25 15:11:44,622 MainProcess PIL.Image DEBUG    Importing CurImagePlugin
+2018-05-25 15:11:44,622 MainProcess PIL.Image DEBUG    Importing DcxImagePlugin
+2018-05-25 15:11:44,638 MainProcess PIL.Image DEBUG    Importing DdsImagePlugin
+2018-05-25 15:11:44,638 MainProcess PIL.Image DEBUG    Importing EpsImagePlugin
+2018-05-25 15:11:44,716 MainProcess PIL.Image DEBUG    Importing FitsStubImagePlugin
+2018-05-25 15:11:44,731 MainProcess PIL.Image DEBUG    Importing FliImagePlugin
+2018-05-25 15:11:44,731 MainProcess PIL.Image DEBUG    Importing FpxImagePlugin
+2018-05-25 15:11:44,747 MainProcess PIL.Image DEBUG    Image: failed to import FpxImagePlugin: No module named 'olefile'
+2018-05-25 15:11:44,747 MainProcess PIL.Image DEBUG    Importing FtexImagePlugin
+2018-05-25 15:11:44,762 MainProcess PIL.Image DEBUG    Importing GbrImagePlugin
+2018-05-25 15:11:44,778 MainProcess PIL.Image DEBUG    Importing GifImagePlugin
+2018-05-25 15:11:44,778 MainProcess PIL.Image DEBUG    Importing GribStubImagePlugin
+2018-05-25 15:11:44,778 MainProcess PIL.Image DEBUG    Importing Hdf5StubImagePlugin
+2018-05-25 15:11:44,794 MainProcess PIL.Image DEBUG    Importing IcnsImagePlugin
+2018-05-25 15:11:44,809 MainProcess PIL.Image DEBUG    Importing IcoImagePlugin
+2018-05-25 15:11:44,809 MainProcess PIL.Image DEBUG    Importing ImImagePlugin
+2018-05-25 15:11:44,825 MainProcess PIL.Image DEBUG    Importing ImtImagePlugin
+2018-05-25 15:11:44,826 MainProcess PIL.Image DEBUG    Importing IptcImagePlugin
+2018-05-25 15:11:44,826 MainProcess PIL.Image DEBUG    Importing JpegImagePlugin
+2018-05-25 15:11:44,843 MainProcess PIL.Image DEBUG    Importing Jpeg2KImagePlugin
+2018-05-25 15:11:44,859 MainProcess PIL.Image DEBUG    Importing McIdasImagePlugin
+2018-05-25 15:11:44,859 MainProcess PIL.Image DEBUG    Importing MicImagePlugin
+2018-05-25 15:11:44,875 MainProcess PIL.Image DEBUG    Image: failed to import MicImagePlugin: No module named 'olefile'
+2018-05-25 15:11:44,875 MainProcess PIL.Image DEBUG    Importing MpegImagePlugin
+2018-05-25 15:11:44,890 MainProcess PIL.Image DEBUG    Importing MpoImagePlugin
+2018-05-25 15:11:44,906 MainProcess PIL.Image DEBUG    Importing MspImagePlugin
+2018-05-25 15:11:44,906 MainProcess PIL.Image DEBUG    Importing PalmImagePlugin
+2018-05-25 15:11:44,921 MainProcess PIL.Image DEBUG    Importing PcdImagePlugin
+2018-05-25 15:11:44,921 MainProcess PIL.Image DEBUG    Importing PcxImagePlugin
+2018-05-25 15:11:44,937 MainProcess PIL.Image DEBUG    Importing PdfImagePlugin
+2018-05-25 15:11:44,984 MainProcess PIL.Image DEBUG    Importing PixarImagePlugin
+2018-05-25 15:11:44,999 MainProcess PIL.Image DEBUG    Importing PngImagePlugin
+2018-05-25 15:11:44,999 MainProcess PIL.Image DEBUG    Importing PpmImagePlugin
+2018-05-25 15:11:44,999 MainProcess PIL.Image DEBUG    Importing PsdImagePlugin
+2018-05-25 15:11:44,999 MainProcess PIL.Image DEBUG    Importing SgiImagePlugin
+2018-05-25 15:11:45,015 MainProcess PIL.Image DEBUG    Importing SpiderImagePlugin
+2018-05-25 15:11:45,015 MainProcess PIL.Image DEBUG    Importing SunImagePlugin
+2018-05-25 15:11:45,031 MainProcess PIL.Image DEBUG    Importing TgaImagePlugin
+2018-05-25 15:11:45,031 MainProcess PIL.Image DEBUG    Importing TiffImagePlugin
+2018-05-25 15:11:45,031 MainProcess PIL.Image DEBUG    Importing WebPImagePlugin
+2018-05-25 15:11:45,046 MainProcess PIL.Image DEBUG    Importing WmfImagePlugin
+2018-05-25 15:11:45,046 MainProcess PIL.Image DEBUG    Importing XbmImagePlugin
+2018-05-25 15:11:45,062 MainProcess PIL.Image DEBUG    Importing XpmImagePlugin
+2018-05-25 15:11:45,077 MainProcess PIL.Image DEBUG    Importing XVThumbImagePlugin

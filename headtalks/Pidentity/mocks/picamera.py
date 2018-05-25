@@ -18,3 +18,4 @@ class Mockpicamera(object):
     def stop_preview(self):
         logging.debug("stop_preview")
         time.sleep(1)
+

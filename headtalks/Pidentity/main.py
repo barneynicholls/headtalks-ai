@@ -1,6 +1,7 @@
 import logging
 import logging.handlers
 import tempfile
+import os.path
 from tkinter import *
 from PIL import ImageTk, Image
 
@@ -14,6 +15,10 @@ window = Tk()
 panel = Label(window)
 
 def open_image(path):
+
+    if(not os.path.isfile(path)):
+        path = "trump.jpg"
+
     snapped = ImageTk.PhotoImage(Image.open(path))
     panel.configure(image=snapped)
     panel.image_names=snapped
@@ -22,7 +27,7 @@ def capture():
     f = tempfile.NamedTemporaryFile(delete=False)
     logging.info('capturing file: '+f.name)
     cam.capture(f.name)
-    open_image("trump.jpg")
+    open_image(f.name)
 
 def stop_preview():
     cam.stop_preview()
