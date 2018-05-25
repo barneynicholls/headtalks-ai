@@ -60,6 +60,7 @@
     <Folder Include="mocks\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="putin.jpg" />
     <Content Include="trump.jpg" />
   </ItemGroup>

@@ -11,6 +11,7 @@ except ImportError:
     from mocks import Mockpicamera as camera
 
 cam = camera()
+cam.resolution = (800, 600)
 window = Tk() 
 panel = Label(window)
 
@@ -28,6 +29,7 @@ def capture():
     imageFile = f.name + ".jpg"
     logging.info('capturing file: '+imageFile)
     cam.capture(imageFile)
+    logging.info('opening file: '+imageFile)
     open_image(imageFile)
 
 def stop_preview():
