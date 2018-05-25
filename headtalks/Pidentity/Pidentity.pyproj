@@ -21,6 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Adafruit_GPIO\GPIO.py" />
+    <Compile Include="Adafruit_GPIO\Platform.py" />
+    <Compile Include="Adafruit_GPIO\SPI.py" />
+    <Compile Include="Adafruit_GPIO\__init__.py" />
     <Compile Include="Adafruit_PN532\PN532.py" />
     <Compile Include="Adafruit_PN532\__init__.py" />
     <Compile Include="mocks\picamera.py">
@@ -40,6 +44,7 @@
   <ItemGroup>
     <Folder Include="Adafruit_PN532\" />
     <Folder Include="mocks\" />
+    <Folder Include="Adafruit_GPIO\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
