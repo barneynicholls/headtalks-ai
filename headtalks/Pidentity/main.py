@@ -5,10 +5,10 @@ import os.path
 from tkinter import *
 from PIL import ImageTk, Image
 
-#try:
-#    from picamera import PiCamera as camera
-#except ImportError:
-from mocks import Mockpicamera as camera
+try:
+    from picamera import PiCamera as camera
+except ImportError:
+    from mocks import Mockpicamera as camera
 
 cam = camera()
 window = Tk() 
