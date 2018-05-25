@@ -170,3 +170,6 @@
 2018-05-25 15:11:45,046 MainProcess PIL.Image DEBUG    Importing XbmImagePlugin
 2018-05-25 15:11:45,062 MainProcess PIL.Image DEBUG    Importing XpmImagePlugin
 2018-05-25 15:11:45,077 MainProcess PIL.Image DEBUG    Importing XVThumbImagePlugin
+2018-05-25 15:27:56,397 MainProcess root INFO     Started
+2018-05-25 15:28:07,676 MainProcess root INFO     capturing file: C:\Users\BARNEY~1\AppData\Local\Temp\tmpn2fxnz2i.jpg
+2018-05-25 15:28:08,821 MainProcess root DEBUG    capture: 'C:\Users\BARNEY~1\AppData\Local\Temp\tmpn2fxnz2i.jpg' 

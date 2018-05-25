@@ -25,9 +25,10 @@ def open_image(path):
 
 def capture():
     f = tempfile.NamedTemporaryFile(delete=False)
-    logging.info('capturing file: '+f.name)
-    cam.capture(f.name)
-    open_image(f.name)
+    imageFile = f.name + ".jpg"
+    logging.info('capturing file: '+imageFile)
+    cam.capture(imageFile)
+    open_image(imageFile)
 
 def stop_preview():
     cam.stop_preview()
